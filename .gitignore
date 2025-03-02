@@ -1,0 +1,6 @@
+sharma_embedding.egg-info/
+test-venv/
+__pycache__/
+sharma_embedding/__pycache__/*
+*.pyc
+*.pyo

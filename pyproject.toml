@@ -1,0 +1,19 @@
+[project]
+name = "sharma_embedding"
+description = "wrapper around sharma embedding so it can  be used as a vectorizer function for PyTorch Dataloader Class"
+version = "0.0.0"
+readme = "README.md"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+]
+classifiers = [
+    "Private :: Do Not Upload",
+]
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = {}
