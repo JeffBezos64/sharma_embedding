@@ -5,9 +5,10 @@ import pandas as pd
 from sklearn.preprocessing import normalize
 
 class Dictionary:
-    def __init__(self, filepath, encoding="latin1"):
+    def __init__(self, filepath, encoding="latin1", OOVRandom=True):
         self.words = list()
         self.lookup = dict()
+        self.OOVRandom = OOVRandom
         dictionary = list()
 
         for i, line in enumerate(open(filepath, encoding=encoding)): #TODO needs to be absolute path.
@@ -24,7 +25,10 @@ class Dictionary:
         try:
             return self.dictionary[self.lookup[word.strip().upper()], :]
         except KeyError:
-            return np.random.rand(50,)
+            if OOVRandom:
+                return np.random.rand(50,)
+            else:
+                return np.zeros(50,)
 
     def word(self, vec, n=None):
         v = vec / np.linalg.norm(vec)
