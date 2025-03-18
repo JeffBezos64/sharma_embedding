@@ -25,7 +25,7 @@ class Dictionary:
         try:
             return self.dictionary[self.lookup[word.strip().upper()], :]
         except KeyError:
-            if OOVRandom:
+            if self.OOVRandom:
                 return np.random.rand(50,)
             else:
                 return np.zeros(50,)
